@@ -1,0 +1,312 @@
+@font-face {
+    font-family: robotoMono;
+    src: url(../fonts/Roboto_Mono/RobotoMono-Regular.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: robotoBold;
+    src: url(../fonts/Roboto_Mono/RobotoMono-Bold.ttf) format("truetype");
+}
+
+@font-face {
+    font-family: cascadia;
+    src: url(../fonts/cascadia-code/Cascadia.ttf) format("truetype");
+}
+
+@keyframes slidein {
+    from {
+        opacity: 0%;
+        transform: translateX(-600px);
+    }
+  
+    to {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes flipdown {
+    from {
+        transform: rotateX(-90deg);
+        transform-origin: top;
+    }
+
+    to {
+        transform: rotateX(0deg);
+    }
+}
+
+/* ============================================ */
+/* ============================================ */
+/* ============================================ */
+.roboto-font {
+    font-family: "Roboto", monospace, Impact;
+}
+.roboto-bold-font {
+    font-family: robotoBold, monospace, Impact;
+}
+
+html {
+    
+    body {
+        background-color: #A9C5A0;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        overflow-x: hidden;
+
+        .wrapper {
+            width: 100vw;
+            // ************************************************
+            // NAVIGATION STYLES
+            // ************************************************
+            .navbar {
+                display: grid;
+                grid-template-columns: 9fr 1fr;
+                position: fixed;
+                width: 100%;
+                z-index: 100;
+                
+                #hamnav {
+                    width: 100%;
+                    background: #000;
+                    /* Optional */
+                    padding: 0px 20px;
+                    top: 0;
+
+                }
+                .social-media-icons {
+                    display: flex;
+                    justify-content: space-evenly;
+                    background-color: black;
+                    padding: 10px 10px 0px 0px;
+                    i {
+                        color: white;
+                        font-size: 40px;
+                        margin-right: 1em;
+                    }
+                }
+                
+                #hamnav label, #hamburger { display: none; }
+                
+                /* Horizontal Menu Items */
+                #hamitems { display: flex; }
+                
+                #hamitems a {
+                    width: 20%; /* 100% / 5 tabs = 20% */
+                    padding: 10px 15px;
+                    color: white;
+                    font-family: cascadia, monospace, Impact;
+                    text-decoration: none;
+                    text-align: center;
+                }
+
+                #hamitems a:hover {
+                    color: rgb(30, 255, 0);
+                }
+                
+                /* [ON SMALL SCREENS] */
+                @media screen and (max-width: 936px){
+                    .social-media-icons {
+                        padding: 5px 10px 0px 0px;
+                    }
+
+                    #hamnav {
+                        padding: 0;
+                    }
+                    /* Show Hamburger Icon */
+                    #hamnav label { 
+                        display: inline-block; 
+                        background: rgb(30, 255, 0);
+                        font-style: normal;
+                        font-size: 1.5em;
+                        font-weight: 900;
+                        padding: 10px 15px;
+                    }
+                    
+                    /* Break down menu items into vertical */
+                    #hamitems a {
+                        box-sizing: border-box;
+                        display: block;
+                        width: 100%;
+                        border-top: 1px solid #333;
+                    }
+                    
+                    /* Toggle Show/Hide Menu */
+                    #hamitems { display: none; }
+                    #hamnav input:checked ~ #hamitems { display: block; }
+                }
+            }
+                // ************************************************
+                //NAV STYLES END
+                // ************************************************
+
+
+            // ************************************************
+            // HEADER STYLES
+            // ************************************************
+            #landing {
+                padding: 12% 16%;
+                display: block;
+                position: relative;
+                // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15vh), 0 100%);
+                //clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 10vh));
+                // Applies opaque background image to #landing 
+                // without affecting landing text
+                &::before {
+                    content:"";
+                    background-image: url(images/boise.jpg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    opacity:0.4;
+                    position:absolute;
+                    top:0;
+                    bottom:0;
+                    right:0;
+                    left:0;
+                    width:auto;
+                    height:auto;
+                    z-index:-3;
+                }
+                .landing-left {
+                    font-size: x-large;
+                }
+
+                .landing-right {
+                    font-family: Arial, Helvetica, sans-serif;
+                    text-align: right;
+                }
+
+                .landing-item {
+                    display: inline-block;
+                    width: 40%;
+                }
+
+                //Wraps "about me" text on small screens
+                @media only screen and (max-width: 1000px) {
+                    .landing-item {
+                        display: block;
+                        width: 100%;
+                    }
+                }
+
+                #subhead {
+                    transform: rotateX(-90deg);
+                    animation-fill-mode: forwards;
+                    // Custom animation
+                    animation: flipdown 1s cubic-bezier(0.28, 1, 0.62, 1) 2s forwards;
+                }
+                
+            }
+            // ************************************************
+            //HEADER STYLES END
+            // ************************************************
+
+
+
+            // ************************************************
+            // MAIN SECTION STYLES
+            // ************************************************
+            main {
+
+                section {
+                    padding: 20px 80px;
+                    .lang-cards {
+                        display: inline-flex;
+                        flex-wrap: wrap;
+    
+                        .lang-card {
+                            color: black;
+                            border-radius: 3%;
+                            display: inline-block;
+                            background-color: #C6DEC6;
+                            height: 300px;
+                            width: 180px;
+                            margin: 30px 30px 30px 0px;
+                            padding: 10px 20px;
+                            font-family: Arial, Helvetica, sans-serif;
+                            text-align: center;
+                            transition: 0.3s;
+                            &:hover {
+                                transform: translateY(2px);
+                                box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
+                            }
+                            .lang-text p {
+                                font-family: robotoBold;
+                            }
+                            
+                            ul {
+                                text-align: left;
+                            }
+                            
+                            .lang-img {
+                                height: 150px;
+                                width: 150px;
+                            }
+                            
+                            .php-img {
+                                height: 70%;
+                                margin: 20% 0 20% 0%;
+                            }
+                            
+                            @media only screen and (max-width: 455px) {
+                                .php-img {
+                                    margin: 15% 0 15% 0;
+                                }
+                            }
+
+                            .css-img {
+                                width: 55%;
+                            }
+                            
+                            .sql-img {
+                                border-radius: 4%;
+                            }
+                        }
+                    // Tech cards end
+                    }
+                    #frameworks {
+                        display: grid;
+                        //grid-template-columns: 1fr 1fr;
+                        grid-auto-flow: column;
+                        gap: 30px;
+                        
+                        .framework-card {
+                            display: grid;
+                            grid-template-columns: 1fr 2fr;
+                            background-color: rgb(101, 108, 109);
+                            text-align: center;
+                            padding: 1.5em 3em;
+                            border-radius: 5px;
+                            font-size: large;
+                            font-family: "Roboto", sans-serif;
+                            
+                            ul {
+                                list-style-position: inside;
+                            }
+
+                            .framework-text {
+                                display: inline;
+                                height: 100%;
+                            }
+                            
+                            .framework-img {
+                                display: inline;
+                                width: 200px;
+                                height: 100%;
+                            }
+                        }
+                    }
+
+                // ************************************************
+                // Section end
+                // ************************************************
+                }
+            // ************************************************
+            // Main end
+            // ************************************************
+            }
+        }
+    }
+}
+
