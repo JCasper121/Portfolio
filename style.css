@@ -13,30 +13,6 @@
   src: url(../fonts/cascadia-code/Cascadia.ttf) format("truetype");
 }
 
-@-webkit-keyframes slidein {
-  from {
-    opacity: 0%;
-    -webkit-transform: translateX(-600px);
-            transform: translateX(-600px);
-  }
-  to {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-}
-
-@keyframes slidein {
-  from {
-    opacity: 0%;
-    -webkit-transform: translateX(-600px);
-            transform: translateX(-600px);
-  }
-  to {
-    -webkit-transform: translateX(0px);
-            transform: translateX(0px);
-  }
-}
-
 @-webkit-keyframes flipdown {
   from {
     -webkit-transform: rotateX(-90deg);
@@ -64,49 +40,102 @@
 }
 
 /* ============================================ */
-/* ============================================ */
+/* ============== Custom fonts ================ */
 /* ============================================ */
 .roboto-font {
   font-family: "Roboto", monospace, Impact;
 }
 
 .roboto-bold-font {
-  font-family: robotoBold, monospace, Impact;
+  font-family: "robotoBold", monospace, Impact;
 }
 
-html body {
-  background-color: #A9C5A0;
-  height: 100%;
-  width: 100%;
-  margin: 0;
+.cascadia {
+  font-family: "cascadia";
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
   overflow-x: hidden;
-}
-
-html body .wrapper {
   width: 100vw;
 }
 
+html body {
+  position: relative;
+  background-color: black;
+  height: 100%;
+  width: auto;
+  margin: 0;
+  padding: 0;
+}
+
+html body .wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+html body .wrapper .section-header {
+  margin-left: 8%;
+}
+
 html body .wrapper .navbar {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 9fr 1fr;
-      grid-template-columns: 9fr 1fr;
+  padding-right: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   position: fixed;
   width: 100%;
   z-index: 100;
+  background: #000;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   /* Horizontal Menu Items */
   /* [ON SMALL SCREENS] */
 }
 
 html body .wrapper .navbar #hamnav {
+  -webkit-box-flex: 80%;
+      -ms-flex: 80%;
+          flex: 80%;
   width: 100%;
-  background: #000;
-  /* Optional */
   padding: 0px 20px;
   top: 0;
 }
 
+html body .wrapper .navbar .darkmode-button {
+  padding: 6px;
+  border-radius: 6px;
+  -webkit-box-flex: 5%;
+      -ms-flex: 5%;
+          flex: 5%;
+  background-color: #3d3d3d;
+  text-align: center;
+}
+
+html body .wrapper .navbar .darkmode-button i {
+  color: white;
+  font-size: 30px;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+html body .wrapper .navbar .darkmode-button .light-icon {
+  display: none;
+}
+
+html body .wrapper .navbar .darkmode-button:hover > i {
+  color: #1eff00;
+}
+
 html body .wrapper .navbar .social-media-icons {
+  -webkit-box-flex: 15%;
+      -ms-flex: 15%;
+          flex: 15%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -114,13 +143,20 @@ html body .wrapper .navbar .social-media-icons {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   background-color: black;
-  padding: 10px 10px 0px 0px;
 }
 
 html body .wrapper .navbar .social-media-icons i {
   color: white;
   font-size: 40px;
-  margin-right: 1em;
+  margin-left: .2em;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+html body .wrapper .navbar .social-media-icons i:hover {
+  color: #1eff00;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 html body .wrapper .navbar #hamnav label, html body .wrapper .navbar #hamburger {
@@ -136,25 +172,24 @@ html body .wrapper .navbar #hamitems {
 html body .wrapper .navbar #hamitems a {
   width: 20%;
   /* 100% / 5 tabs = 20% */
-  padding: 10px 15px;
+  padding: 0px 25px 15px 0px;
   color: white;
   font-family: cascadia, monospace, Impact;
   text-decoration: none;
   text-align: center;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
 }
 
 html body .wrapper .navbar #hamitems a:hover {
   color: #1eff00;
 }
 
-@media screen and (max-width: 936px) {
+@media screen and (max-width: 1150px) {
   html body .wrapper .navbar {
     /* Show Hamburger Icon */
     /* Break down menu items into vertical */
     /* Toggle Show/Hide Menu */
-  }
-  html body .wrapper .navbar .social-media-icons {
-    padding: 5px 10px 0px 0px;
   }
   html body .wrapper .navbar #hamnav {
     padding: 0;
@@ -183,18 +218,24 @@ html body .wrapper .navbar #hamitems a:hover {
 }
 
 html body .wrapper #landing {
-  padding: 12% 16%;
+  padding: 10% 10%;
   display: block;
   position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+  background-color: #e5cbba;
+  z-index: 95;
+  color: black;
 }
 
 html body .wrapper #landing::before {
   content: "";
-  background-image: url(images/boise.jpg);
+  background-image: unset;
+  background-image: repeating-linear-gradient(25deg, #424242 3px, darkgrey 3px, #424242 8px);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.4;
+  opacity: 0.6;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -203,6 +244,7 @@ html body .wrapper #landing::before {
   width: auto;
   height: auto;
   z-index: -3;
+  background-attachment: fixed;
 }
 
 html body .wrapper #landing .landing-left {
@@ -219,13 +261,6 @@ html body .wrapper #landing .landing-item {
   width: 40%;
 }
 
-@media only screen and (max-width: 1000px) {
-  html body .wrapper #landing .landing-item {
-    display: block;
-    width: 100%;
-  }
-}
-
 html body .wrapper #landing #subhead {
   -webkit-transform: rotateX(-90deg);
           transform: rotateX(-90deg);
@@ -235,26 +270,56 @@ html body .wrapper #landing #subhead {
           animation: flipdown 1s cubic-bezier(0.28, 1, 0.62, 1) 2s forwards;
 }
 
-html body .wrapper main section {
-  padding: 20px 80px;
+@media only screen and (max-width: 1000px) {
+  html body .wrapper #landing {
+    padding: 15% 5% 10% 5%;
+  }
+  html body .wrapper #landing .landing-item {
+    display: block;
+    width: 100%;
+  }
 }
 
-html body .wrapper main section .lang-cards {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+html body .wrapper main {
+  margin: 0;
 }
 
-html body .wrapper main section .lang-cards .lang-card {
+html body .wrapper main #languages-wrapper {
+  background-color: #e5cbba;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+  margin-top: -6vh;
+  -webkit-clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+          clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+  padding: 25px 0px 100px 25px;
+  z-index: 85;
+}
+
+html body .wrapper main #languages-wrapper #languages {
+  text-align: center;
+}
+
+html body .wrapper main #languages-wrapper #languages .lang-cards {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(15rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card {
   color: black;
   border-radius: 3%;
   display: inline-block;
-  background-color: #C6DEC6;
+  margin-bottom: 30px;
+  background-color: #FFE8D6;
   height: 300px;
-  width: 180px;
-  margin: 30px 30px 30px 0px;
+  width: 200px;
   padding: 10px 20px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
@@ -262,77 +327,165 @@ html body .wrapper main section .lang-cards .lang-card {
   transition: 0.3s;
 }
 
-html body .wrapper main section .lang-cards .lang-card:hover {
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card:hover {
   -webkit-transform: translateY(2px);
           transform: translateY(2px);
   -webkit-box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
           box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
 }
 
-html body .wrapper main section .lang-cards .lang-card .lang-text p {
-  font-family: robotoBold;
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card .lang-text p {
+  font-family: "Roboto", sans-serif;
 }
 
-html body .wrapper main section .lang-cards .lang-card ul {
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card ul {
   text-align: left;
 }
 
-html body .wrapper main section .lang-cards .lang-card .lang-img {
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card .lang-img {
   height: 150px;
   width: 150px;
 }
 
-html body .wrapper main section .lang-cards .lang-card .php-img {
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card .php-img {
   height: 70%;
   margin: 20% 0 20% 0%;
 }
 
 @media only screen and (max-width: 455px) {
-  html body .wrapper main section .lang-cards .lang-card .php-img {
+  html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card .php-img {
     margin: 15% 0 15% 0;
   }
 }
 
-html body .wrapper main section .lang-cards .lang-card .css-img {
-  width: 55%;
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card .css-img {
+  width: 70%;
 }
 
-html body .wrapper main section .lang-cards .lang-card .sql-img {
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card .sql-img {
   border-radius: 4%;
 }
 
-html body .wrapper main section #frameworks {
-  display: -ms-grid;
-  display: grid;
-  grid-auto-flow: column;
-  gap: 30px;
+@media screen and (max-width: 479px) {
+  html body .wrapper main #languages {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
-html body .wrapper main section #frameworks .framework-card {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 2fr;
-      grid-template-columns: 1fr 2fr;
-  background-color: #656c6d;
-  text-align: center;
-  padding: 1.5em 3em;
-  border-radius: 5px;
-  font-size: large;
+html body .wrapper main #frameworks-wrapper {
+  background-color: #a396a7;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  margin-top: -6vh;
+  -webkit-clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+          clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+  padding: 25px 0px 100px 25px;
+  z-index: 80;
+}
+
+html body .wrapper main #frameworks-wrapper #frameworks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  gap: 50px 0px;
+}
+
+html body .wrapper main #frameworks-wrapper #frameworks .framework-card {
   font-family: "Roboto", sans-serif;
+  font-size: large;
+  background-color: #846292;
+  color: black;
+  padding: 1em 0.25em;
+  border: 2px solid #583d58;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: center;
 }
 
-html body .wrapper main section #frameworks .framework-card ul {
+html body .wrapper main #frameworks-wrapper #frameworks .framework-card .framework-text {
+  -webkit-box-flex: 60%;
+      -ms-flex: 60%;
+          flex: 60%;
+  height: 100%;
+  border-left: 3px solid #583d58;
+  text-align: left;
+  padding-left: .5em;
+}
+
+html body .wrapper main #frameworks-wrapper #frameworks .framework-card .framework-text ul {
   list-style-position: inside;
 }
 
-html body .wrapper main section #frameworks .framework-card .framework-text {
-  display: inline;
-  height: 100%;
+html body .wrapper main #frameworks-wrapper #frameworks .framework-card .framework-img-wrapper {
+  padding: 0.25em 0em 0.25em 0.25em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 40%;
+      -ms-flex: 40%;
+          flex: 40%;
 }
 
-html body .wrapper main section #frameworks .framework-card .framework-img {
-  display: inline;
-  width: 200px;
-  height: 100%;
+@media screen and (max-width: 600px) {
+  html body .wrapper main #frameworks-wrapper #frameworks .framework-card .framework-card {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  html body .wrapper main #frameworks-wrapper #frameworks .framework-card .framework-card .framework-text {
+    -webkit-box-flex: 50%;
+        -ms-flex: 50%;
+            flex: 50%;
+  }
+  html body .wrapper main #frameworks-wrapper #frameworks .framework-card .framework-card .framework-img-wrapper {
+    -webkit-box-flex: 50%;
+        -ms-flex: 50%;
+            flex: 50%;
+  }
+}
+
+html body .wrapper main #frameworks-wrapper #frameworks .framework-card .framework-img {
+  width: 100%;
+  height: auto;
+}
+
+html body .wrapper main #projects-wrapper {
+  background-color: #d4d4b3;
+  margin-top: -6vh;
+  -webkit-clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+          clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+  padding: 25px 0px 100px 25px;
+  width: 100%;
+  height: 400px;
+  z-index: 75;
 }
 /*# sourceMappingURL=style.css.map */

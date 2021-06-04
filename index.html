@@ -3,7 +3,8 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -12,11 +13,14 @@
     rel="stylesheet"
     href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-    crossorigin="anonymous"
-    />
+    crossorigin="anonymous"/>
+
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <!-- compiled SCSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Typed.js library -->
+
+    <!-- href Added dynamically with javascript -->
+    <link id="darkmode-css" rel="stylesheet">
 
 
     <title>John Casper's Portfolio</title>
@@ -33,13 +37,18 @@
                 <!-- [MENU ITEMS] -->
                 <div id="hamitems">
                     <h3><a href="#landing">Home</a></h3>
-                    <h3><a href="#techs">Technologies</a></h3>
+                    <h3><a href="#languages">Languages</a></h3>
+                    <h3><a href="#frameworks">Frameworks/Libraries</a></h3>
                     <h3><a href="#projects">Projects</a></h3>
                     <h3><a href="#certifications">Certifications</a></h3>
                     <h3><a href="#contact">Contact Me</a></h3>
                 </div>
             </nav>
 
+            <div id="darkmode-button" class="darkmode-button">
+                <i class="darkmode-icon dark-icon far fa-moon"></i>
+                <i class="darkmode-icon light-icon far fa-sun"></i>
+            </div>
             <div class="social-media-icons">
                 <a href="https://www.linkedin.com/in/john-casper-ab3376199/" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/JCasper121" target="_blank"><i class="fab fa-github-square"></i></a>
@@ -49,17 +58,17 @@
 
         <header id="landing">
             <div class="landing-item landing-left">
-                <h1 id="heading" class="roboto-font">
+                <h1 id="heading" class="roboto-bold-font">
                     <span class="text-slider-items"></span>
                     <strong class="text-slider"></strong>
                 </h1>
-                    <h4 id="subhead" class="roboto-font">Web Developer</h4>
+                    <h4 id="subhead" class="cascadia">Web Developer</h4>
             </div>
             <div class="landing-item landing-right">
                 <div class="heading">
-                    <h1 class="roboto-bold-font">About me</h1>
+                    <h1 class="cascadia">About me</h1>
                     <h3>
-                        <p>I'm a junior web developer seeking employment  to utilize my skills and gain a deeper understanding of
+                        <p class="roboto-font">I'm a junior web developer seeking employment  to utilize my skills and gain a deeper understanding of
                                 the technologies and techniques used in the development of modern web applications.</p>
                     </h3>
             </div>
@@ -68,40 +77,41 @@
 <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
 <!-- &&&&&&&&&&&&&&&&&&&&&& LANGUAGES SECTION &&&&&&&&&&&&&&&&&&&&& -->
 <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
-            <section id="techs">
-                <h2 class="section-header roboto-bold-font">Languages</h2>
+            <div id="languages-wrapper">
+                <h1 class="section-header roboto-bold-font">Languages</h1>
+                <section id="languages">
                 <div class="lang-cards">
-
+                    
                     <article class="lang-card">
-                            <div class="csharp-img">
+                        <div class="csharp-img">
                             <img class="lang-img" src="images/csharp.png" alt="">
-                            </div>
-                            <hr>
-                            <div class="lang-text">
-
-                                <p>Concepts</p>
-                                <ul>
-                                    <li>OOP</li>
-                                    <li>Inheritance</li>
-                                    <li>Encapsulation</li>
-                                </ul>
-                            </div>
+                        </div>
+                        <hr>
+                        <div class="lang-text">
+                            
+                            <p>Concepts</p>
+                            <ul>
+                                <li>OOP</li>
+                                <li>Inheritance</li>
+                                <li>Encapsulation</li>
+                            </ul>
+                        </div>
                     </article>
-
+                    
                     <article class="lang-card">
-                            <img class="lang-img" src="images/javascript.png" alt="">
-                            <hr>
-                            <div class="lang-text">
-
-                                <p>Concepts</p>
-                                <ul>
-                                    <li>DOM manipulation</li>
-                                    <li>Closures</li>
-                                    <li>Recusion</li>
-                                </ul>
-                            </div>
+                        <img class="lang-img" src="images/javascript.png" alt="">
+                        <hr>
+                        <div class="lang-text">
+                            
+                            <p>Concepts</p>
+                            <ul>
+                                <li>DOM manipulation</li>
+                                <li>Closures</li>
+                                <li>Recusion</li>
+                            </ul>
+                        </div>
                     </article>
-
+                    
                     <article class="lang-card">
                         <div>
                             <img class="lang-img php-img" src="images/php.png" alt="">
@@ -116,7 +126,7 @@
                             </ul>
                         </div>                                
                     </article>
-
+                    
                     <article class="lang-card">
                         <div class="csharp-img">
                             <img class="lang-img sql-img" src="images/sql.png" alt="">
@@ -131,99 +141,126 @@
                             </ul>
                         </div>
                     </article>
-
+                    
                     <article class="lang-card">
-                                <img class="lang-img" src="images/html.png" alt="">
-                            <hr>
-                            <div class="lang-text">
-                                <p>Concepts</p>
-                                <ul>
+                        <img class="lang-img" src="images/html.png" alt="">
+                        <hr>
+                        <div class="lang-text">
+                            <p>Concepts</p>
+                            <ul>
                                     <li>Semantic HTML</li>
                                     <li>CSS</li>
                                     <li>Javascript</li>
                                 </ul>
                             </div>
                     </article>
-
+                    
                     <article class="lang-card">
-                            <img class="lang-img css-img" src="images/css.png" alt="">
+                        <img class="lang-img css-img" src="images/css.png" alt="">
                         <hr>
                         <div class="lang-text">
                             <p>Concepts</p>
                             <ul>
-                                <li>Pseudo classes/elements</li>
+                                <li>Pseudo selectors</li>
                                 <li>Animation</li>
                                 <li>Custom fonts</li>
                             </ul>
                         </div>
                     </article>
-
+                    
                     <article class="lang-card">
-                                <img class="lang-img" src="images/sass.webp" alt="">
-                            <hr>
-                            <div class="lang-text">
-                                <p>Concepts</p>
-                                <ul>
-                                    <li>Variables</li>
-                                    <li>Mixins</li>
-                                    <li>Functions</li>
-                                </ul>
-                            </div>
+                        <img class="lang-img" src="images/sass.webp" alt="">
+                        <hr>
+                        <div class="lang-text">
+                            <p>Concepts</p>
+                            <ul>
+                                <li>Variables</li>
+                                <li>Mixins</li>
+                                <li>Functions</li>
+                            </ul>
+                        </div>
                     </article>
                 </div>
+            </section>
+        </div>
+            
+            <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+            <!-- &&&&&&&&&&&&&&&&&&&&&& FRAMEWORK SECTION &&&&&&&&&&&&&&&&&&&&& -->
+            <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+            
+            <section id="frameworks-wrapper">
 
-<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
-<!-- &&&&&&&&&&&&&&&&&&&&&& FRAMEWORK SECTION &&&&&&&&&&&&&&&&&&&&& -->
-<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
-
-            <h2 class="section-header roboto-bold-font">Frameworks/Libraries</h2>
+                <h1 class="section-header roboto-bold-font">Frameworks/Libraries</h1>
                 <div id="frameworks">
-
-                            <article class="framework-card" data-aos="fade-up">
+                    <article class="framework-card" data-aos="fade-up">
+                        <div class="framework-img-wrapper">
                             <img class="framework-img" src="images/vue.png" alt="">
-                            <div class="framework-text">
-                                <ul>
-                                    <li>Vuex</li>
-                                    <li>Vue Router</li>
-                                    <li>Options API</li>
-                                </ul>
-                            </div>
-                        </article>
-                        <article class="framework-card" data-aos="fade-up" data-aos-delay="200">
-                            <img class="framework-img" src="images/asp.net_mvc.png" alt="">
-                            <div class="framework-text">
-                                <ul>
-                                    <li>Inheritance</li>
-                                    <li>Animation</li>
-                                    <li>Custom fonts</li>
-                                </ul>
-                            </div>
-                        </article>
-                        <article class="framework-card" data-aos="fade-up" data-aos-delay="400">
-                            <img class="framework-img" src="images/asp.net_mvc.png" alt="">
-                            <div class="framework-text">
-                                <ul>
-                                    <li>Inheritance</li>
-                                    <li>Animation</li>
-                                    <li>Custom fonts</li>
-                                </ul>
-                            </div>
-                        </article>
+                        </div>
+                                    <div class="framework-text">
+                                        <h2>Vue.js</h2>
+                                    <ul>
+                                        <li>Vuex</li>
+                                        <li>Vue Router</li>
+                                        <li>Options API</li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <article class="framework-card" data-aos="fade-up" data-aos-delay="200">
+                                <div class="framework-img-wrapper">
+                                    <img class="framework-img" src="images/asp.net_mvc.png" alt="">
+                                </div>
+                                <div class="framework-text">
+                                    <h2>ASP.NET MVC</h2>
+                                    <ul>
+                                        <li>Inheritance</li>
+                                        <li>Entity Framework</li>
+                                        <li>Razor view engine</li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <article class="framework-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="framework-img-wrapper">
+                                    <img class="framework-img" src="images/bootstrap.png" alt="">
+                                </div>
+                                <div class="framework-text">
+                                    <h2>Bootstrap 4</h2>
+                                    <ul>
+                                        <li>Grid system</li>
+                                        <li>Components</li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </article>
+                            <article class="framework-card" data-aos="fade-up" data-aos-delay="400">
+                                <div class="framework-img-wrapper">
+                                    <img class="framework-img" src="images/jquery-icon.png" alt="">
+                                </div>
+                                <div class="framework-text">
+                                    <h2>jQuery</h2>
+                                    <ul>
+                                        <li>Events</li>
+                                        <li>jQuery UI</li>
+                                        <li></li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
 
+                    <section id="projects-wrapper">
+                        <h2 class="roboto-bold-font section-header">Projects</h2>
+                        <div id="projects">
+
+                        </div>
+                    </section>
+                    </main>
+                    
                     
                 </div>
-            </section>
-            <section id="projects">
-                <h2 class="roboto-bold-font">Projects</h2>
-            </section>
-        </main>
-
-       
-    </div>
-    <!-- Activate On Scroll script -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+                <!-- Activate On Scroll script -->
+                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+                <!-- AOS CSS -->
+                <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Typed.js library -->
     <script src="scripts/typed.js-master/lib/typed.min.js"></script>
     <!-- JQUERY library -->
@@ -244,5 +281,6 @@
 
 
     </script>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -1,3 +1,5 @@
+@import 'mixins';
+
 @font-face {
     font-family: robotoMono;
     src: url(../fonts/Roboto_Mono/RobotoMono-Regular.ttf) format("truetype");
@@ -13,17 +15,18 @@
     src: url(../fonts/cascadia-code/Cascadia.ttf) format("truetype");
 }
 
-@keyframes slidein {
-    from {
-        opacity: 0%;
-        transform: translateX(-600px);
-    }
+// Animations
+// @keyframes slidein {
+//     from {
+//         opacity: 0%;
+//         transform: translateX(-600px);
+//     }
   
-    to {
-        transform: translateX(0px);
-    }
-}
-
+//     to {
+//         transform: translateX(0px);
+//     }
+// }
+// for "Web developer" subheading
 @keyframes flipdown {
     from {
         transform: rotateX(-90deg);
@@ -36,54 +39,109 @@
 }
 
 /* ============================================ */
-/* ============================================ */
+/* ============== Custom fonts ================ */
 /* ============================================ */
 .roboto-font {
     font-family: "Roboto", monospace, Impact;
 }
 .roboto-bold-font {
-    font-family: robotoBold, monospace, Impact;
+    font-family: "robotoBold", monospace, Impact;
 }
 
+.cascadia {
+    font-family: "cascadia";
+}
+
+// COLOR VARIABLES
+$code-green: rgb(30, 255, 0);
+$language-background : #e5cbba;
+$language-card: #FFE8D6;
+$framework-background: rgb(163, 150, 167);
+$framework-card: rgb(132, 98, 146);
+$project-background: #d4d4b3;
+$project-card: #bdbd9f;
+$darkmode-language-background: black;
+$darkmode-project-background: black;
+$darkmode-language-card: lightgrey;
+$darkmode-project-card: lightgrey;
+$darkmode-framework-background: black;
+$darkmode-framework-card: lightgrey;
+
+// STYLES BEGIN
+* { box-sizing:border-box; }
 html {
-    
+    //width: 100vw;
+    overflow-x: hidden;
+    width: 100vw;
     body {
-        background-color: #A9C5A0;
+        position: relative;
+        background-color: black;
         height: 100%;
-        width: 100%;
+        width: auto;
         margin: 0;
-        overflow-x: hidden;
+        padding: 0;
 
         .wrapper {
-            width: 100vw;
+            margin: 0;
+            padding: 0;
+
+            .section-header {
+                margin-left: 8%;
+            }
             // ************************************************
             // NAVIGATION STYLES
             // ************************************************
             .navbar {
-                display: grid;
-                grid-template-columns: 9fr 1fr;
+                padding-right: 1rem;
+                display: flex;
                 position: fixed;
                 width: 100%;
                 z-index: 100;
-                
+                background: #000;
+                align-items: center;
                 #hamnav {
+                    flex: 80%;
                     width: 100%;
-                    background: #000;
-                    /* Optional */
                     padding: 0px 20px;
                     top: 0;
 
                 }
+                .darkmode-button {
+                    padding: 6px;
+                    border-radius: 6px;
+                    flex: 5%; 
+                    background-color: rgb(61, 61, 61);
+                    text-align: center;
+                    i {
+                        color: white;
+                        font-size: 30px;
+                        transition: 0.6s;
+                    }
+                    
+                    .light-icon {
+                        display:none;
+                    }
+                    &:hover>i {
+                        color: $code-green;
+                    }
+                }
                 .social-media-icons {
+                    flex: 15%;
                     display: flex;
                     justify-content: space-evenly;
                     background-color: black;
-                    padding: 10px 10px 0px 0px;
+                    //padding: 10px 0px 0px 0px;
                     i {
                         color: white;
                         font-size: 40px;
-                        margin-right: 1em;
+                        margin-left: .2em;
+                        transition: 0.6s;
+                        &:hover {
+                            color: $code-green;
+                            transform: scale(1.2);
+                        }
                     }
+
                 }
                 
                 #hamnav label, #hamburger { display: none; }
@@ -93,22 +151,20 @@ html {
                 
                 #hamitems a {
                     width: 20%; /* 100% / 5 tabs = 20% */
-                    padding: 10px 15px;
+                    padding: 0px 25px 15px 0px;
                     color: white;
                     font-family: cascadia, monospace, Impact;
                     text-decoration: none;
                     text-align: center;
+                    transition: 0.6s;
+                    &:hover {
+                        color: $code-green;
+                    }
                 }
 
-                #hamitems a:hover {
-                    color: rgb(30, 255, 0);
-                }
                 
                 /* [ON SMALL SCREENS] */
-                @media screen and (max-width: 936px){
-                    .social-media-icons {
-                        padding: 5px 10px 0px 0px;
-                    }
+                @media screen and (max-width: 1150px){
 
                     #hamnav {
                         padding: 0;
@@ -116,7 +172,7 @@ html {
                     /* Show Hamburger Icon */
                     #hamnav label { 
                         display: inline-block; 
-                        background: rgb(30, 255, 0);
+                        background: $code-green;
                         font-style: normal;
                         font-size: 1.5em;
                         font-weight: 900;
@@ -145,20 +201,24 @@ html {
             // HEADER STYLES
             // ************************************************
             #landing {
-                padding: 12% 16%;
+                padding: 10% 10%;
                 display: block;
                 position: relative;
-                // clip-path: polygon(0 0, 100% 0, 100% calc(100% - 15vh), 0 100%);
-                //clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 10vh));
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+                background-color: $language-background;
+                z-index: 95;
+                color: black;
                 // Applies opaque background image to #landing 
                 // without affecting landing text
                 &::before {
                     content:"";
-                    background-image: url(images/boise.jpg);
+
+                    background-image: unset;
+                    background-image: repeating-linear-gradient(25deg, rgb(66, 66, 66) 3px, darkgrey 3px, rgb(66,66,66) 8px);
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
-                    opacity:0.4;
+                    opacity:0.6;
                     position:absolute;
                     top:0;
                     bottom:0;
@@ -167,6 +227,7 @@ html {
                     width:auto;
                     height:auto;
                     z-index:-3;
+                    background-attachment: fixed;
                 }
                 .landing-left {
                     font-size: x-large;
@@ -175,6 +236,7 @@ html {
                 .landing-right {
                     font-family: Arial, Helvetica, sans-serif;
                     text-align: right;
+                    //margin-right: 70px;
                 }
 
                 .landing-item {
@@ -182,14 +244,7 @@ html {
                     width: 40%;
                 }
 
-                //Wraps "about me" text on small screens
-                @media only screen and (max-width: 1000px) {
-                    .landing-item {
-                        display: block;
-                        width: 100%;
-                    }
-                }
-
+                
                 #subhead {
                     transform: rotateX(-90deg);
                     animation-fill-mode: forwards;
@@ -197,6 +252,17 @@ html {
                     animation: flipdown 1s cubic-bezier(0.28, 1, 0.62, 1) 2s forwards;
                 }
                 
+            }
+            //Wraps "about me" text on small screens
+            @media only screen and (max-width: 1000px) {
+                #landing {
+                    padding: 15% 5% 10% 5%;
+
+                    .landing-item {
+                        display: block;
+                        width: 100%;
+                    }
+                }
             }
             // ************************************************
             //HEADER STYLES END
@@ -208,99 +274,174 @@ html {
             // MAIN SECTION STYLES
             // ************************************************
             main {
-
-                section {
-                    padding: 20px 80px;
-                    .lang-cards {
-                        display: inline-flex;
-                        flex-wrap: wrap;
-    
-                        .lang-card {
-                            color: black;
-                            border-radius: 3%;
-                            display: inline-block;
-                            background-color: #C6DEC6;
-                            height: 300px;
-                            width: 180px;
-                            margin: 30px 30px 30px 0px;
-                            padding: 10px 20px;
-                            font-family: Arial, Helvetica, sans-serif;
-                            text-align: center;
-                            transition: 0.3s;
-                            &:hover {
-                                transform: translateY(2px);
-                                box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
-                            }
-                            .lang-text p {
-                                font-family: robotoBold;
-                            }
+                margin: 0;
+                #languages-wrapper {
+                    background-color: $language-background;
+                    //padding: 25px 0px 100px 25px;
+                    // margin-top: -70px;
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+                    @include clipped-border;
+                    z-index: 85;
+                    #languages {
+                        text-align: center;
+                        .lang-cards {
+                            // Responsive grid for language cards
+                            display: grid;
+                            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+                            justify-content:center;
+                            align-items: center;
                             
-                            ul {
-                                text-align: left;
-                            }
-                            
-                            .lang-img {
-                                height: 150px;
-                                width: 150px;
-                            }
-                            
-                            .php-img {
-                                height: 70%;
-                                margin: 20% 0 20% 0%;
-                            }
-                            
-                            @media only screen and (max-width: 455px) {
+        
+                            .lang-card {
+                                color: black;
+                                border-radius: 3%;
+                                display: inline-block;
+                                margin-bottom: 30px;
+                                background-color: $language-card;
+                                height: 300px;
+                                width: 200px;
+                                //margin: 30px 30px 30px 0px;
+                                padding: 10px 20px;
+                                font-family: Arial, Helvetica, sans-serif;
+                                text-align: center;
+                                transition: 0.3s;
+                                &:hover {
+                                    transform: translateY(2px);
+                                    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
+                                }
+                                .lang-text p {
+                                    font-family: "Roboto", sans-serif;
+                                }
+                                
+                                ul {
+                                    text-align: left;
+                                }
+                                
+                                .lang-img {
+                                    height: 150px;
+                                    width: 150px;
+                                }
+                                
                                 .php-img {
-                                    margin: 15% 0 15% 0;
+                                    height: 70%;
+                                    margin: 20% 0 20% 0%;
+                                }
+                                
+                                @media only screen and (max-width: 455px) {
+                                    .php-img {
+                                        margin: 15% 0 15% 0;
+                                    }
+
+                                    
+                                }
+
+                                .css-img {
+                                    width: 70%;
+                                }
+                                
+                                .sql-img {
+                                    border-radius: 4%;
                                 }
                             }
+                        }
 
-                            .css-img {
-                                width: 55%;
-                            }
+                    }
+                }
+
+                @media screen and (max-width: 479px){
+                    #languages {
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+                // Languages End
+                    #frameworks-wrapper {
+                        background-color: $framework-background;
+                        padding: 0;
+                        margin: 0;
+                        width: 100%;
+                        // clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+                        @include clipped-border;
+                        z-index: 80;
+                        #frameworks {
+                            // REsponsive flexbox for framework cards
+                            display: flex;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+                            justify-content: space-evenly;
+                            gap: 50px 0px;
                             
-                            .sql-img {
-                                border-radius: 4%;
+                            .framework-card {
+                                font-family: "Roboto", sans-serif;
+                                font-size: large;
+                                background-color: $framework-card;
+                                color: rgb(0, 0, 0);
+                                padding: 1em 0.25em;
+                                border: 2px solid rgb(88, 61, 88);
+                                border-radius: 5px;
+                                display: flex;
+                                flex-direction: row;
+                                gap: 10px;
+                                justify-content: space-between;
+                                text-align: center;
+                                //min-width: .8vw;
+                                
+                                
+                                
+                                .framework-text {
+                                    flex: 60%;
+                                    height: 100%;
+                                    border-left: 3px solid rgb(88, 61, 88);//rgb(48, 45, 41);
+                                    text-align: left;
+                                    padding-left: .5em;
+                                    
+                                    ul {
+                                        list-style-position: inside;
+                                    }
+                                }
+                                
+                                .framework-img-wrapper {
+                                    padding: 0.25em 0em 0.25em 0.25em;
+                                    display: flex;
+                                    align-items: center;
+                                    flex: 40%;
+                                }
+                                @media screen and (max-width: 600px) {
+                                    .framework-card {
+                                        flex-direction: column;
+
+                                        .framework-text {
+                                            flex: 50%
+                                        }
+
+                                        .framework-img-wrapper {
+                                            flex:50%;
+                                        }
+                                    }
+                                }
+                                
+                                .framework-img {
+                                    width: 100%;
+                                    height: auto;
+                                }
                             }
                         }
-                    // Tech cards end
                     }
-                    #frameworks {
-                        display: grid;
-                        //grid-template-columns: 1fr 1fr;
-                        grid-auto-flow: column;
-                        gap: 30px;
-                        
-                        .framework-card {
-                            display: grid;
-                            grid-template-columns: 1fr 2fr;
-                            background-color: rgb(101, 108, 109);
-                            text-align: center;
-                            padding: 1.5em 3em;
-                            border-radius: 5px;
-                            font-size: large;
-                            font-family: "Roboto", sans-serif;
-                            
-                            ul {
-                                list-style-position: inside;
-                            }
-
-                            .framework-text {
-                                display: inline;
-                                height: 100%;
-                            }
-                            
-                            .framework-img {
-                                display: inline;
-                                width: 200px;
-                                height: 100%;
-                            }
-                        }
-                    }
-
                 // ************************************************
-                // Section end
+                // FRameworks end
                 // ************************************************
+
+                #projects-wrapper {
+                    background-color: $project-background;
+                    //padding: 55px 5px 100px 5px;
+                    // margin-top: -69px;
+                    // clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+                    @include clipped-border;
+                    width: 100%;
+                    height: 400px;
+                    z-index: 75;
+                    // #projects {
+                    // }
                 }
             // ************************************************
             // Main end
@@ -308,5 +449,6 @@ html {
             }
         }
     }
+
 }
 

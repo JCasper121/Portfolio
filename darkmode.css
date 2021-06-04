@@ -1,0 +1,108 @@
+html body {
+  background-color: #1eff00;
+}
+
+html body .wrapper .navbar {
+  background: #000;
+}
+
+html body .wrapper .navbar .darkmode-button {
+  background-color: #3d3d3d;
+}
+
+html body .wrapper .navbar .darkmode-button i {
+  color: white;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+html body .wrapper .navbar .darkmode-button .dark-icon {
+  display: none;
+}
+
+html body .wrapper .navbar .darkmode-button .light-icon {
+  display: block;
+}
+
+html body .wrapper .navbar .darkmode-button:hover > i {
+  color: #1eff00;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+html body .wrapper .navbar .social-media-icons {
+  background-color: black;
+}
+
+html body .wrapper .navbar .social-media-icons i {
+  color: white;
+  -webkit-transition: 0.6s;
+  transition: 0.6s;
+}
+
+html body .wrapper .navbar .social-media-icons i:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  color: #1eff00;
+}
+
+html body .wrapper .navbar #hamitems a {
+  color: white;
+}
+
+html body .wrapper .navbar #hamitems a:hover {
+  color: #1eff00;
+}
+
+@media screen and (max-width: 1150px) {
+  html body .wrapper .navbar #hamnav label {
+    background: #1eff00;
+  }
+  html body .wrapper .navbar #hamitems a {
+    border-top: 1px solid #333;
+  }
+}
+
+html body .wrapper #landing {
+  background-image: unset;
+  background-image: repeating-linear-gradient(25deg, #1f1f1f 2px, darkgrey 2px, #1f1f1f 8px);
+  color: white;
+}
+
+html body .wrapper main {
+  margin: 0;
+}
+
+html body .wrapper main #languages-wrapper {
+  background-color: black;
+}
+
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card {
+  color: black;
+}
+
+html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card:hover {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  -webkit-box-shadow: 2px 2px 2px 2px rgba(255, 255, 255, 0.8) inset;
+          box-shadow: 2px 2px 2px 2px rgba(255, 255, 255, 0.8) inset;
+}
+
+html body .wrapper main #languages-wrapper #frameworks-wrapper {
+  background-color: black;
+}
+
+html body .wrapper main #languages-wrapper #frameworks-wrapper #frameworks .framework-card {
+  background-color: lightgrey;
+  color: black;
+  border: 2px solid #583d58;
+}
+
+html body .wrapper main #languages-wrapper #frameworks-wrapper #frameworks .framework-card .framework-text {
+  border-left: 3px solid #583d58;
+}
+
+html body .wrapper main #languages-wrapper #projects-wrapper {
+  background-color: black;
+}
+/*# sourceMappingURL=darkmode.css.map */

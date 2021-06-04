@@ -1,0 +1,129 @@
+$code-green: rgb(30, 255, 0);
+$language-background: black;
+$project-background: black;
+$language-card: lightgrey;
+$project-card: lightgrey;
+$darkmode-framework-background: black;
+$framework-card: lightgrey;
+
+html {
+
+    body {
+        background-color: $code-green;
+        
+        .wrapper {
+            // ************************************************
+            // NAVIGATION STYLES
+            // ************************************************
+            .navbar {
+                background: #000;
+                .darkmode-button {
+
+                    background-color: rgb(61, 61, 61);
+
+                    i {
+                        color: white;
+                        transition: 0.6s;
+                    }
+
+                    .dark-icon {
+                        display: none;
+                    }
+                    
+                    .light-icon {
+                        display:block;
+                    }
+
+                    &:hover>i {
+                        color: $code-green;
+                        transform: scale(1.2);
+                    }
+                }
+                .social-media-icons {
+                    background-color: black;
+                    i {
+                        color: white;
+                        transition: 0.6s;
+                        &:hover {
+                            transform: scale(1.1);
+                            color: $code-green;
+                        }
+                    }
+
+                }
+
+                #hamitems a {
+                    color: white;
+                    &:hover {
+                        color: $code-green;
+                    }
+                }
+
+                
+                @media screen and (max-width: 1150px){
+                    #hamnav label { 
+                        background: $code-green;
+                    }
+                    
+                    #hamitems a {
+
+                        border-top: 1px solid #333;
+                    }
+                }
+            }
+            #landing {
+                background-image: unset;
+                background-image: repeating-linear-gradient(25deg, rgb(31, 31, 31) 2px, darkgrey 2px, rgb(31,31,31) 8px);
+
+                color: white;
+            }
+
+
+            main {
+                margin: 0;
+                #languages-wrapper {
+                    background-color: $language-background;
+
+                    #languages {
+                        .lang-cards {
+
+                            .lang-card {
+                                color: black;
+                                &:hover {
+                                    transform: translateY(2px);
+                                    box-shadow: 2px 2px 2px 2px rgba(255, 255, 255, 0.8) inset;
+                                }
+                            }
+                        }
+                    }
+                // Languages End
+                    #frameworks-wrapper {
+                        background-color: $darkmode-framework-background;
+                        #frameworks {
+                            
+                            .framework-card {
+                                background-color: $framework-card;
+                                color: rgb(0, 0, 0);
+                                border: 2px solid rgb(88, 61, 88);
+                                .framework-text {
+                                    border-left: 3px solid rgb(88, 61, 88);//rgb(48, 45, 41);
+                                }
+                                
+                            }
+                        }
+                    }
+                // ************************************************
+                // FRameworks end
+                // ************************************************
+
+                #projects-wrapper {
+                    background-color: $project-background;
+                }
+                // ************************************************
+                // Main end
+                // ************************************************
+                }
+            }
+        }
+    }
+}
