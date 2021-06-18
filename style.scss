@@ -38,6 +38,26 @@
     }
 }
 
+@keyframes icon-appear {
+    from {
+        transform: translateY(-10px);
+    }
+    
+    to {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes icon-disappear {
+    from {
+        transform: translateY(0px);
+    }
+    
+    to {
+        transform: translateY(10px);
+    }
+}
+
 /* ============================================ */
 /* ============== Custom fonts ================ */
 /* ============================================ */
@@ -54,7 +74,7 @@
 
 // COLOR VARIABLES
 $code-green: rgb(30, 255, 0);
-$language-background : #e5cbba;
+$language-background : #e5dbba;
 $language-card: #FFE8D6;
 $framework-background: rgb(163, 150, 167);
 $framework-card: rgb(132, 98, 146);
@@ -98,20 +118,23 @@ html {
                 width: 100%;
                 z-index: 100;
                 background: #000;
-                align-items: center;
+                align-items: top;
                 #hamnav {
                     flex: 80%;
                     width: 100%;
-                    padding: 0px 20px;
+                    //padding: 0px 20px;
                     top: 0;
 
                 }
                 .darkmode-button {
-                    padding: 6px;
+                    margin-top: 7px;
+                    height: 40px;
+                    padding: 5px;
                     border-radius: 6px;
                     flex: 5%; 
                     background-color: rgb(61, 61, 61);
                     text-align: center;
+                    transition: 0.6s;
                     i {
                         color: white;
                         font-size: 30px;
@@ -119,13 +142,19 @@ html {
                     }
                     
                     .light-icon {
+                        //animation: 0.4s "icon-disappear";
                         display:none;
                     }
-                    &:hover>i {
-                        color: $code-green;
+                    
+                    &:hover {
+                        transform: scale(1.1);
+                        i {
+                            color: $code-green;
+                        }
                     }
                 }
                 .social-media-icons {
+                    margin-top: 7px;
                     flex: 15%;
                     display: flex;
                     justify-content: space-evenly;
@@ -138,7 +167,7 @@ html {
                         transition: 0.6s;
                         &:hover {
                             color: $code-green;
-                            transform: scale(1.2);
+                            transform: scale(1.1);
                         }
                     }
 
@@ -151,9 +180,9 @@ html {
                 
                 #hamitems a {
                     width: 20%; /* 100% / 5 tabs = 20% */
-                    padding: 0px 25px 15px 0px;
+                    padding: 0px 0px 15px 25px;
                     color: white;
-                    font-family: cascadia, monospace, Impact;
+                    font-family: "Roboto", monospace, Impact;
                     text-decoration: none;
                     text-align: center;
                     transition: 0.6s;
@@ -164,7 +193,7 @@ html {
 
                 
                 /* [ON SMALL SCREENS] */
-                @media screen and (max-width: 1150px){
+                @media screen and (max-width: 1163px){
 
                     #hamnav {
                         padding: 0;
@@ -204,7 +233,8 @@ html {
                 padding: 10% 10%;
                 display: block;
                 position: relative;
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+                //clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vh), 90% 100%, 10% calc(100% - 4vh), 0 100%);
                 background-color: $language-background;
                 z-index: 95;
                 color: black;
@@ -214,7 +244,8 @@ html {
                     content:"";
 
                     background-image: unset;
-                    background-image: repeating-linear-gradient(25deg, rgb(66, 66, 66) 3px, darkgrey 3px, rgb(66,66,66) 8px);
+                    //background-image: repeating-linear-gradient(25deg, rgb(66, 66, 66) 3px, darkgrey 3px, rgb(66,66,66) 8px), linear-gradient(45deg, rgba(0,0,0,0), rgba(0, 0, 0, 1));
+                    background-image: linear-gradient(45deg, rgba(0,0,0,0), rgba(0, 0, 0, 1)), repeating-linear-gradient(25deg, rgb(66, 66, 66) 3px, darkgrey 3px, rgb(66,66,66) 8px);
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
@@ -234,7 +265,7 @@ html {
                 }
 
                 .landing-right {
-                    font-family: Arial, Helvetica, sans-serif;
+                    font-family: "Roboto", Helvetica, sans-serif;
                     text-align: right;
                     //margin-right: 70px;
                 }
@@ -243,7 +274,9 @@ html {
                     display: inline-block;
                     width: 40%;
                 }
-
+                #heading {
+                    font-family: "cascadia";
+                }
                 
                 #subhead {
                     transform: rotateX(-90deg);
@@ -306,8 +339,9 @@ html {
                                 text-align: center;
                                 transition: 0.3s;
                                 &:hover {
-                                    transform: translateY(2px);
-                                    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2) inset;
+                                    transform: scale(1.04);
+                                    box-shadow: 0px 0px 10px 5px rgba(87, 87, 87, 0.8);
+                                }
                                 }
                                 .lang-text p {
                                     font-family: "Roboto", sans-serif;
@@ -346,60 +380,59 @@ html {
                         }
 
                     }
-                }
-
-                @media screen and (max-width: 479px){
+                    
+                    @media screen and (max-width: 479px){
                     #languages {
                         display: flex;
                         justify-content: center;
                     }
                 }
                 // Languages End
-                    #frameworks-wrapper {
-                        background-color: $framework-background;
-                        padding: 0;
-                        margin: 0;
-                        width: 100%;
-                        // clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
-                        @include clipped-border;
-                        z-index: 80;
-                        #frameworks {
-                            // REsponsive flexbox for framework cards
+                #frameworks-wrapper {
+                    background-color: $framework-background;
+                    padding: 0;
+                    margin: 0;
+                    width: 100%;
+                    // clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+                    @include clipped-border;
+                    z-index: 80;
+                    #frameworks {
+                        // REsponsive flexbox for framework cards
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        justify-content: space-evenly;
+                        gap: 50px 0px;
+                        
+                        .framework-card {
+                            font-family: "Roboto", sans-serif;
+                            font-size: large;
+                            background-color: $framework-card;
+                            color: rgb(0, 0, 0);
+                            padding: 1em 0.25em;
+                            border: 3px solid rgb(88, 61, 88);
+                            border-radius: 5px;
                             display: flex;
                             flex-direction: row;
-                            flex-wrap: wrap;
-                            justify-content: space-evenly;
-                            gap: 50px 0px;
+                            gap: 10px;
+                            justify-content: space-between;
+                            text-align: center;
+                            //min-width: .8vw;
                             
-                            .framework-card {
-                                font-family: "Roboto", sans-serif;
-                                font-size: large;
-                                background-color: $framework-card;
-                                color: rgb(0, 0, 0);
-                                padding: 1em 0.25em;
-                                border: 2px solid rgb(88, 61, 88);
-                                border-radius: 5px;
-                                display: flex;
-                                flex-direction: row;
-                                gap: 10px;
-                                justify-content: space-between;
-                                text-align: center;
-                                //min-width: .8vw;
+                            
+                            
+                            .framework-text {
+                                flex: 60%;
+                                height: 100%;
+                                border-left: 3px solid rgb(88, 61, 88);//rgb(48, 45, 41);
+                                text-align: left;
+                                padding-left: .5em;
                                 
-                                
-                                
-                                .framework-text {
-                                    flex: 60%;
-                                    height: 100%;
-                                    border-left: 3px solid rgb(88, 61, 88);//rgb(48, 45, 41);
-                                    text-align: left;
-                                    padding-left: .5em;
-                                    
-                                    ul {
-                                        list-style-position: inside;
-                                    }
+                                ul {
+                                    list-style-position: inside;
                                 }
-                                
+                            }
+                            
                                 .framework-img-wrapper {
                                     padding: 0.25em 0em 0.25em 0.25em;
                                     display: flex;
@@ -409,11 +442,11 @@ html {
                                 @media screen and (max-width: 600px) {
                                     .framework-card {
                                         flex-direction: column;
-
+                                        
                                         .framework-text {
                                             flex: 50%
                                         }
-
+                                        
                                         .framework-img-wrapper {
                                             flex:50%;
                                         }
@@ -425,12 +458,17 @@ html {
                                     height: auto;
                                 }
                             }
+                            // @media screen and(max-width: 600px) {
+                                //     .languge-card {
+                            //         max-width: 400px;
+                            //     }
+                            // }
                         }
                     }
-                // ************************************************
+                    // ************************************************
                 // FRameworks end
                 // ************************************************
-
+                
                 #projects-wrapper {
                     background-color: $project-background;
                     //padding: 55px 5px 100px 5px;
@@ -441,14 +479,14 @@ html {
                     height: 400px;
                     z-index: 75;
                     // #projects {
-                    // }
-                }
+                        // }
+                    }
             // ************************************************
             // Main end
             // ************************************************
             }
         }
     }
-
 }
+
 

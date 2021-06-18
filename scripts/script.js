@@ -1,16 +1,20 @@
 var darkMode = function() {
-    var sheetLink = document.getElementById("darkmode-css");
-    if(sheetLink.hasAttribute("href")) {
-        sheetLink.removeAttribute("href");
+
+    var sheetLink = $("#darkmode-css")
+
+    if(sheetLink.attr("href")) {
+        sheetLink.removeAttr("href");
         localStorage.setItem("darkmode_portfolio", "false");
     } else {
-        sheetLink.setAttribute("href", "darkmode.css");
+        sheetLink.attr("href", "darkmode.css");
         localStorage.setItem("darkmode_portfolio", "true");
     }
 }
 
 var checkDarkMode = function() {
+    
     var sheetLink = document.getElementById("darkmode-css");
+    
     if(localStorage.getItem("darkmode_portfolio") == "true") {
         sheetLink.setAttribute("href", "darkmode.css");
         console.log("Darkmode checked");
@@ -20,8 +24,8 @@ var checkDarkMode = function() {
 
 
 window.onload = function() {
+    
     checkDarkMode();
-    var darkmode_button = document.getElementById("darkmode-button");
-    darkmode_button.onclick = darkMode
+    $("#darkmode-button").click(darkMode);
 
 }

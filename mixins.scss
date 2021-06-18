@@ -1,5 +1,6 @@
 @mixin clipped-border{
-    margin-top: -6vh;
-    clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+    margin-top: -3vh;
+    //clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+    clip-path: polygon(10% 0%, 90% 4vh, 100% 0, 100% calc(100% - 4vh), 90% 100%, 10% calc(100% - 4vh), 0 100%, 0 4vh);
     padding: 25px 0px 100px 25px;
 }
