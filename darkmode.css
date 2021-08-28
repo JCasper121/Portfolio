@@ -1,58 +1,47 @@
+.section-header {
+  color: white;
+}
+
 html body {
   background-image: repeating-linear-gradient(-35deg, transparent, transparent 40vw, #1eff00 40vw, #1eff00 80vw);
   background-attachment: fixed;
 }
-
 html body .wrapper .navbar {
   background: #000;
 }
-
 html body .wrapper .navbar .darkmode-button {
   background-color: #3d3d3d;
 }
-
 html body .wrapper .navbar .darkmode-button i {
   color: white;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 html body .wrapper .navbar .darkmode-button .dark-icon {
   display: none;
 }
-
 html body .wrapper .navbar .darkmode-button .light-icon {
   display: block;
 }
-
 html body .wrapper .navbar .darkmode-button:hover > i {
   color: #1eff00;
 }
-
 html body .wrapper .navbar .social-media-icons {
   background-color: black;
 }
-
 html body .wrapper .navbar .social-media-icons i {
   color: white;
-  -webkit-transition: 0.6s;
   transition: 0.6s;
 }
-
 html body .wrapper .navbar .social-media-icons i:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
+  transform: scale(1.1);
   color: #1eff00;
 }
-
 html body .wrapper .navbar #hamitems a {
   color: white;
 }
-
 html body .wrapper .navbar #hamitems a:hover {
   color: #1eff00;
 }
-
 @media screen and (max-width: 1150px) {
   html body .wrapper .navbar #hamnav label {
     background: #1eff00;
@@ -61,61 +50,55 @@ html body .wrapper .navbar #hamitems a:hover {
     border-top: 1px solid #333;
   }
 }
-
 html body .wrapper #landing {
   background-image: unset;
   background-image: linear-gradient(45deg, black 95%, rgba(0, 0, 0, 0)), repeating-linear-gradient(25deg, #1f1f1f 10px, #3a3a3a 10px, #1f1f1f 8px);
   color: white;
 }
-
 html body .wrapper main {
   margin: 0;
 }
-
 html body .wrapper main #languages-wrapper {
-  background-color: #161616;
-  padding-left: 3vw;
+  background-color: #141414;
 }
-
 html body .wrapper main #languages-wrapper .section-header {
   color: white;
 }
-
-html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card {
-  background-color: #a3a3a3;
-  color: black;
+html body .wrapper main #languages-wrapper #languages .card:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 0px 10px 5px rgba(87, 87, 87, 0.8);
 }
-
-html body .wrapper main #languages-wrapper #languages .lang-cards .lang-card:hover {
-  -webkit-transform: scale(1.04);
-          transform: scale(1.04);
-  -webkit-box-shadow: 0px 0px 10px 5px rgba(87, 87, 87, 0.8);
-          box-shadow: 0px 0px 10px 5px rgba(87, 87, 87, 0.8);
-}
-
-html body .wrapper main #frameworks-wrapper {
-  background-color: #2c2c2c;
-}
-
-html body .wrapper main #frameworks-wrapper .section-header {
-  color: white;
-}
-
-html body .wrapper main #frameworks-wrapper #frameworks .framework-card {
+html body .wrapper main #languages-wrapper #languages .card .card-front {
   background-color: lightgrey;
-  color: black;
-  border: 2px solid #583d58;
 }
-
-html body .wrapper main #frameworks-wrapper #frameworks .framework-card .framework-text {
-  border-left: 3px solid #583d58;
+html body .wrapper main #frameworks-wrapper {
+  background-color: #141414;
 }
-
 html body .wrapper main #projects-wrapper {
-  background-color: black;
+  color: white;
+  background-color: #141414;
 }
-
-html body .wrapper main #projects-wrapper .section-header {
+html body .wrapper main #projects-wrapper .projects .project {
+  border: 1px solid #1eff00;
+  background-color: #252525;
+  background-color: #555555;
+}
+html body .wrapper main #projects-wrapper .projects .project .hover-text {
+  color: #1eff00;
+}
+html body .wrapper main #projects-wrapper .projects .project .project-header-wrapper a {
   color: white;
 }
+html body .wrapper main #certifications-wrapper {
+  color: white;
+  background-color: #141414;
+}
+html body .wrapper #footer {
+  color: #1eff00;
+  background-color: #141414;
+}
+html body .wrapper #footer h2 {
+  color: white;
+}
+
 /*# sourceMappingURL=darkmode.css.map */

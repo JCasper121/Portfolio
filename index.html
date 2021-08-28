@@ -1,19 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <!-- Google fonts -->
     <link rel="preconnect" href="//fonts.gstatic.com">
-<link href="//fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- Font Awesome import -->
-    <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
-    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-    crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
     <!-- compiled SCSS -->
@@ -24,16 +22,17 @@
 
 
     <title>John Casper's Portfolio</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="wrapper">
         <div class="navbar">
 
             <nav id="hamnav">
                 <!-- [THE HAMBURGER] -->
                 <label for="hamburger">&#9776;</label>
-                <input type="checkbox" id="hamburger"/>
-                
+                <input type="checkbox" id="hamburger" />
+
                 <!-- [MENU ITEMS] -->
                 <div id="hamitems">
                     <h3><a href="#landing">Home</a></h3>
@@ -49,8 +48,12 @@
                 <i class="darkmode-icon dark-icon far fa-moon"></i>
                 <i class="darkmode-icon light-icon far fa-sun"></i>
             </div>
+            <span class="tooltiptext">
+                <div id="darkmode-tooltip"> </div> Mode
+            </span>
             <div class="social-media-icons">
-                <a href="https://www.linkedin.com/in/john-casper-ab3376199/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/john-casper-ab3376199/" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/JCasper121" target="_blank"><i class="fab fa-github-square"></i></a>
             </div>
 
@@ -62,228 +65,359 @@
                     <span class="text-slider-items"></span>
                     <strong class="text-slider"></strong>
                 </h1>
-                    <h4 id="subhead" class="cascadia">Web Developer</h4>
+                <h4 id="subhead" class="cascadia">Web Developer</h4>
             </div>
             <div class="landing-item landing-right">
                 <div class="heading">
                     <h1 class="cascadia">About me</h1>
                     <h3>
-                        <p class="roboto-font">I'm a junior web developer seeking employment  to utilize my skills and gain a deeper understanding of
-                                the technologies and techniques used in the development of modern web applications.</p>
+                        <p class="roboto-font">I'm a junior web developer seeking employment to utilize my skills and
+                            gain a deeper understanding of
+                            the technologies and techniques used in the development of modern web applications.</p>
                     </h3>
-            </div>
+                </div>
         </header>
         <main>
-<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
-<!-- &&&&&&&&&&&&&&&&&&&&&& LANGUAGES SECTION &&&&&&&&&&&&&&&&&&&&& -->
-<!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+            <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
+            <!-- &&&&&&&&&&&&&&&&&&&&&& LANGUAGES SECTION &&&&&&&&&&&&&&&&&&&&& -->
+            <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
             <section id="languages-wrapper">
                 <h1 class="section-header roboto-bold-font">Languages</h1>
                 <div id="languages">
-                <div class="lang-cards">
-                    
-                    <article class="lang-card">
-                        <div class="csharp-img">
-                            <img class="lang-img" src="images/csharp.png" alt="">
-                        </div>
-                        <hr>
-                        <div class="lang-text">
-                            
-                            <p>Concepts</p>
-                            <ul>
-                                <li>OOP</li>
-                                <li>Inheritance</li>
-                                <li>Encapsulation</li>
-                            </ul>
-                        </div>
-                    </article>
-                    
-                    <article class="lang-card">
-                        <img class="lang-img" src="images/javascript.png" alt="">
-                        <hr>
-                        <div class="lang-text">
-                            
-                            <p>Concepts</p>
-                            <ul>
-                                <li>DOM manipulation</li>
-                                <li>Closures</li>
-                                <li>Recusion</li>
-                            </ul>
-                        </div>
-                    </article>
-                    
-                    <article class="lang-card">
-                        <div>
-                            <img class="lang-img php-img" src="images/php.png" alt="">
-                        </div>
-                        <hr>
-                        <div class="lang-text">
-                            <p>Concepts</p>
-                            <ul>
-                                <li>Parameterized queries</li>
-                                <li>Validation</li>
-                                <li>Cookies/Session</li>
-                            </ul>
-                        </div>                                
-                    </article>
-                    
-                    <article class="lang-card">
-                        <div class="csharp-img">
-                            <img class="lang-img sql-img" src="images/sql.png" alt="">
-                        </div>
-                        <hr>
-                        <div class="lang-text">
-                            <p>Concepts</p>
-                            <ul>
-                                <li>Joins</li>
-                                <li>Views</li>
-                                <li>Stored Procedures</li>
-                            </ul>
-                        </div>
-                    </article>
-                    
-                    <article class="lang-card">
-                        <img class="lang-img" src="images/html.png" alt="">
-                        <hr>
-                        <div class="lang-text">
-                            <p>Concepts</p>
-                            <ul>
-                                    <li>Semantic HTML</li>
-                                    <li>CSS</li>
-                                    <li>Javascript</li>
-                                </ul>
+                    <div class="lang-card-grid">
+                        <article class="card">
+                            <div class="card-inner">
+
+                                <div class="card-front">
+                                    <div class="csharp-img">
+                                        <img class="lang-img" src="./images/languages/csharp.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    Concepts
+                                    <ul>
+                                        <li>OOP</li>
+                                        <li>Inheritance</li>
+                                        <li>Encapsulation</li>
+                                    </ul>
+                                </div>
                             </div>
-                    </article>
-                    
-                    <article class="lang-card">
-                        <img class="lang-img css-img" src="images/css.png" alt="">
-                        <hr>
-                        <div class="lang-text">
-                            <p>Concepts</p>
-                            <ul>
-                                <li>Pseudo selectors</li>
-                                <li>Animation</li>
-                                <li>Custom fonts</li>
-                            </ul>
-                        </div>
-                    </article>
-                    
-                    <article class="lang-card">
-                        <img class="lang-img" src="images/sass.webp" alt="">
-                        <hr>
-                        <div class="lang-text">
-                            <p>Concepts</p>
-                            <ul>
-                                <li>Variables</li>
-                                <li>Mixins</li>
-                                <li>Functions</li>
-                            </ul>
-                        </div>
-                    </article>
+                        </article>
+                        <article class="card">
+                            <div class="card-inner">
+
+                                <div class="card-front">
+                                    <img class="lang-img" src="./images/languages/javascript.png" alt="">
+                                </div>
+                                <div class="card-back">
+                                    Concepts
+                                    <ul>
+                                        <li>DOM manipulation</li>
+                                        <li>Closures</li>
+                                        <li>Recusion</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-inner">
+
+                                <div class="card-front">
+                                    <div>
+                                        <img class="lang-img php-img" src="./images/languages/php.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    Concepts
+                                    <ul>
+                                        <li>Parameterized queries</li>
+                                        <li>Validation</li>
+                                        <li>Cookies/Session</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-inner">
+
+                                <div class="card-front">
+                                    <div class="csharp-img">
+                                        <img class="lang-img sql-img" src="./images/languages/sql.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="card-back">
+                                    Concepts
+                                    <ul>
+                                        <li>Joins</li>
+                                        <li>Views</li>
+                                        <li>Stored Procedures</li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-inner">
+
+                                <div class="card-front">
+                                    <img class="lang-img" src="./images/languages/html.png" alt="">
+                                </div>
+                                <div class="card-back">
+                                    Concepts
+                                    <ul>
+                                        <li>Semantic HTML</li>
+                                        <li>CSS</li>
+                                        <li>Javascript</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-inner">
+
+                                <div class="card-front">
+                                    <img class="lang-img css-img" src="./images/languages/css.png" alt="CSS">
+                                </div>
+                                <div class="card-back">
+                                    Concepts
+                                    <ul>
+                                        <li>Pseudo selectors</li>
+                                        <li>Animation</li>
+                                        <li>Custom fonts</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card-inner">
+
+                                <div class="card-front">
+                                    <img class="lang-img" src="./images/languages/sass.webp" alt="">
+                                </div>
+                                <div class="card-back">
+                                    Conctepts
+                                    <ul>
+                                        <li>Variables</li>
+                                        <li>Mixins</li>
+                                        <li>Functions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
                 </div>
-            </div>
-        </section>
-            
+            </section>
+
             <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
             <!-- &&&&&&&&&&&&&&&&&&&&&& FRAMEWORK SECTION &&&&&&&&&&&&&&&&&&&&& -->
             <!-- &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& -->
-            
+
             <section id="frameworks-wrapper">
 
-                <h1 class="section-header roboto-bold-font">Frameworks/Libraries</h1>
+                <h1 class="section-header roboto-bold-font">Frameworks</h1>
                 <div id="frameworks">
                     <article class="framework-card" data-aos="fade-up" aos-once="true">
                         <div class="framework-img-wrapper">
-                            <img class="framework-img" src="images/vue.png" alt="">
+                            <img class="framework-img" src="images/frameworks/asp.net_mvc.png" alt="">
                         </div>
-                                    <div class="framework-text">
-                                        <h2>Vue.js</h2>
-                                    <ul>
-                                        <li>Vuex</li>
-                                        <li>Vue Router</li>
-                                        <li>Options API</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <article class="framework-card" data-aos="fade-up" data-aos-delay="200" aos-once="true">
-                                <div class="framework-img-wrapper">
-                                    <img class="framework-img" src="images/asp.net_mvc.png" alt="">
-                                </div>
-                                <div class="framework-text">
-                                    <h2>ASP.NET MVC</h2>
-                                    <ul>
-                                        <li>Inheritance</li>
-                                        <li>Entity Framework</li>
-                                        <li>Razor view engine</li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <article class="framework-card" data-aos="fade-up" data-aos-delay="400" aos-once="true">
-                                <div class="framework-img-wrapper">
-                                    <img class="framework-img" src="images/bootstrap.png" alt="">
-                                </div>
-                                <div class="framework-text">
-                                    <h2>Bootstrap 4</h2>
-                                    <ul>
-                                        <li>Grid system</li>
-                                        <li>Components</li>
-                                        <li></li>
-                                    </ul>
-                                </div>
-                            </article>
-                            <article class="framework-card" data-aos="fade-up" data-aos-delay="600" aos-once="true">
-                                <div class="framework-img-wrapper">
-                                    <img class="framework-img" src="images/jquery-icon.png" alt="">
-                                </div>
-                                <div class="framework-text">
-                                    <h2>jQuery</h2>
-                                    <ul>
-                                        <li>Events</li>
-                                        <li>jQuery UI</li>
-                                        <li></li>
-                                    </ul>
-                                </div>
-                            </article>
+                        <div class="framework-text">
+                            <h2>ASP.NET MVC</h2>
+                            <ul>
+                                <li>Inheritance</li>
+                                <li>Linq to SQL</li>
+                                <li>Entity ORM</li>
+                                <li>Razor view engine</li>
+                                <li>Routing</li>
+                            </ul>
                         </div>
-                    </section>
-
-                    <section id="projects-wrapper">
-                        <h2 class="roboto-bold-font section-header">Projects</h2>
-                        <div id="projects">
-                            <article class="project">
-                                <div class="project-img-wrapper">
-
-                                </div>
-                                <div class="project-text">
-                                    
-                                </div>
-                            </article>
-                            <article class="project">
-                                <div class="project-img-wrapper">
-
-                                </div>
-                                <div class="project-text">
-
-                                </div>
-                            </article>
-                            <article class="project">
-                                <div class="project-img-wrapper">
-
-                                </div>
-                                <div class="project-text">
-
-                                </div>
-                            </article>
+                    </article>
+                    <article class="framework-card" data-aos="fade-up" data-aos-delay="100" aos-once="true">
+                        <div class="framework-img-wrapper">
+                            <img class="framework-img" src="images/frameworks/vue.png" alt="">
                         </div>
-                    </section>
-        </main>
-                    
-                    
+                        <div class="framework-text">
+                            <h2>Vue.js</h2>
+                            <ul>
+                                <li>Vuex state management</li>
+                                <li>Vue Router</li>
+                                <li>Options API</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="framework-card" data-aos="fade-up" data-aos-delay="200" aos-once="true">
+                        <div class="framework-img-wrapper">
+                            <img class="framework-img" src="./images/frameworks/react.png" alt="">
+                        </div>
+                        <div class="framework-text">
+                            <h2>React.js</h2>
+                            <ul>
+                                <li>Props</li>
+                                <li>React-router-DOM</li>
+                                <li>Lifecycle hooks</li>
+                                <li>Higher-order Components</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <article class="framework-card" data-aos="fade-up" data-aos-delay="300" aos-once="true">
+                        <div class="framework-img-wrapper">
+                            <img class="framework-img" src="images/frameworks/nodejs-seeklogo.com.svg" alt="">
+                        </div>
+                        <div class="framework-text">
+                            <h2>Node.js</h2>
+                            <ul>
+                                <li>Express server</li>
+                                <li>REST APIs</li>
+                                <li>CRUD with mongoDB</li>
+                                <li>NPM</li>
+                            </ul>
+                        </div>
+                    </article>
                 </div>
-                <!-- Activate On Scroll script -->
-                <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-                <!-- AOS CSS -->
-                <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+            </section>
+
+            <section id="projects-wrapper">
+                <h1 class="roboto-bold-font section-header">Projects</h1>
+                <div class="projects">
+
+                    <div class="project roboto-font">
+                        <div class="project-header-wrapper">
+                            <h2 class="project-header">RV Share</h2>
+                            <a target="_blank" href="https://github.com/JCasper121/RV_Share"><i class="fab fa-github"></i></a>
+                        </div>
+                        <p>A Full stack craigslist-style platform for loaning and renting Recreational vehicles</p>
+                        <p>Features:</p>
+                        <ul>
+                            <li>ASP.NET MVC</li>
+                            <li>Login/Registration with hashed passwords</li>
+                            <li>Complex SQL database</li>
+                            <li>Entity ORM</li>
+                            <li>Linq query language</li>
+                        </ul>
+                        <div>
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span class="hover-text">Hover</span> to enlarge images
+                        </div>
+                        <div class="project-images">
+                            <div class="project-img-wrapper">
+                                <p>Homepage</p>
+                                <img class="project-img" src="./images/projects/rv_share.PNG">
+                            </div>
+                            
+                            <div class="project-img-wrapper">
+                                <p>New Listing Form</p>
+                                <img class="project-img" src="./images/projects/rv_share_form.PNG">
+                            </div>
+                            <div class="project-img-wrapper">
+                                <p>Database schema</p>
+                                <img class="project-img" src="./images/projects/rv_share_db.PNG">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project roboto-font">
+                        <div class="project-header-wrapper">
+                            <h2 class="project-header">Bonsai Garden</h2>
+                            <a target="_blank" href="https://github.com/JCasper121/Bonsai-Garden"><i class="fab fa-github"></i></a>
+                        </div>
+                        <p>A front-end food order and delivery system for a fictional restaurant.</p>
+                        <p>Features:</p>
+                        <ul>
+                            <li>Vue.js 3</li>
+                            <li>Vuex state management</li>
+                            <li>Google Maps and Directions APIs</li>
+                            <li>Vue router</li>
+                        </ul>
+                        <div>
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span class="hover-text">Hover</span> to enlarge images
+                        </div>
+                        <div class="project-images">
+                            <div class="project-img-wrapper">
+                                <p>Menu</p>
+                                <img class="project-img" src="./images/projects/bonsai_garden_menu.PNG">
+                            </div>
+                            
+                            <div class="project-img-wrapper">
+                                <p>Map directions</p>
+                                <img class="project-img" src="./images/projects/bonsai_garden_map.PNG">
+                            </div>
+                            <div class="project-img-wrapper">
+                                <p>Distance check fail</p>
+                                <img class="project-img" src="./images/projects/bonsai_garden_map_fail.PNG">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project roboto-font">
+                        <div class="project-header-wrapper">
+                            <h2 class="project-header">Spotify Web Player</h2>
+                            <a target="_blank" href="https://github.com/JCasper121/Spotify_React"><i class="fab fa-github"></i></a>
+                        </div>
+                        <p>A web based music player using Spotify Web Player API and lyrics finder API</p>
+                        <p>Features:</p>
+                        <ul>
+                            <li>React client</li>
+                            <li>Node.js server</li>
+                            <li>Spotify account authorization</li>
+                        </ul>
+                        <div>
+                            <i class="fas fa-mouse-pointer"></i>
+                            <span class="hover-text">Hover</span> to enlarge images
+                        </div>
+                        <div class="project-images">
+                            <div class="project-img-wrapper">
+                                <p>Search</p>
+                                <img class="project-img" src="./images/projects/spotify_react.PNG">
+                            </div>
+                            
+                            <div class="project-img-wrapper">
+                                <p>Play</p>
+                                <img class="project-img" src="./images/projects/spotify_react_player.PNG">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="certifications-wrapper">
+                <h1 class="roboto-bold-font section-header">Certifications</h1>
+                <div class="certifications">
+                    <div class="certification">
+                        <h3 class="cert-label roboto-font">MTA Frontend Fundamentals</h3>
+                        <img class="cert-img" src="./images/certifications/mta_html.png" alt="">
+                    </div>
+                    <div class="certification">
+                        <h3 class="cert-label roboto-font">MTA Database Fundamentals</h3>
+                        <img class="cert-img" src="./images/certifications/mta_db.png" alt="">
+                    </div>
+                </div>
+            </section>
+        </main>
+        <section id="footer">
+            <div class="footer-wrapper">
+                <h1 class="roboto-bold-font section-header">Contact Me</h1>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        (208) 761-1056
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope-open-text"></i>
+                        johncasper121@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Boise, ID
+                    </div>
+                </div>
+            </div>
+            </section>
+
+
+    </div>
+    <!-- Activate On Scroll script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Typed.js library -->
     <script src="scripts/typed.js-master/lib/typed.min.js"></script>
     <!-- JQUERY library -->
@@ -294,8 +428,9 @@
         if ($(".text-slider").length == 1) {
             var typed_string = "John Casper";
             var typed = new Typed(".text-slider", {
+                delay: 3500,
                 strings: [typed_string],
-                typeSpeed: 90,
+                typeSpeed: 120,
                 loop: false,
             });
         }
@@ -305,6 +440,7 @@
 
     </script>
     <!-- Darkmode script -->
-    <script src="scripts/script.js"></script>
-  </body>
+    <script src="scripts/darkmode.js"></script>
+</body>
+
 </html>

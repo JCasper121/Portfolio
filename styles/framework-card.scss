@@ -1,0 +1,68 @@
+
+    .framework-card {
+        font-family: "Roboto", sans-serif;
+        font-size: large;
+        background-color: $framework-card;
+        color: rgb(0, 0, 0);
+        padding: 1em 0.25em;
+        border: 3px solid rgb(88, 61, 88);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        justify-content: space-between;
+        text-align: center;
+        width: 600px;
+        
+        
+        
+        .framework-text {
+            flex: 60%;
+            height: 100%;
+            // border-left: 3px solid rgb(88, 61, 88);//rgb(48, 45, 41);
+            text-align: left;
+            padding-left: .5em;
+            
+            ul {
+                list-style-position: inside;
+            }
+        }
+        
+            .framework-img-wrapper {
+                padding: 0.25em 0em 0.25em 0.25em;
+                display: flex;
+                justify-content: center;
+                flex: 40%;
+            }
+            // @media screen and (max-width: 600px) {
+            //         .framework-text {
+            //             flex: 50%
+            //         }
+                    
+            //         .framework-img-wrapper {
+            //             flex:50%;
+            //         }
+
+            // }
+            
+            .framework-img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        @media screen and (max-width: 500px) {
+            .framework-card {
+                flex-direction: column;
+                width: 80%;
+                .framework-img-wrapper {
+                    width: 100%;
+                    
+                    .framework-img {
+                        width: 70%;
+                    }
+                }
+                .framework-text {
+                    border: none;
+                }
+            }
+        }

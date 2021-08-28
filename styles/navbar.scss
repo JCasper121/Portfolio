@@ -1,0 +1,145 @@
+
+    .navbar {
+        padding-right: 1rem;
+        display: flex;
+        position: fixed;
+        width: 100%;
+        z-index: 100;
+        background: #000;
+        align-items: top;
+        #hamnav {
+            flex: 80%;
+            width: 100%;
+            //padding: 0px 20px;
+            top: 0;
+
+            label, #hamburger { 
+                display: none;
+            }
+            /* Horizontal Menu Items */
+            #hamitems { 
+                display: flex;
+                a {
+                    width: 20%; /* 100% / 5 tabs = 20% */
+                    padding: 0px 0px 15px 25px;
+                    color: white;
+                    font-family: "Roboto", monospace, Impact;
+                    text-decoration: none;
+                    text-align: center;
+                    transition: 0.6s;
+                    &:hover {
+                        color: $code-green;
+                    }
+                }
+            }
+
+        }
+        .darkmode-button {
+            margin-top: 7px;
+            height: 40px;
+            padding: 5px;
+            border-radius: 6px;
+            flex: 5%; 
+            background-color: rgb(61, 61, 61);
+            text-align: center;
+            transition: 0.6s;
+            i {
+                color: white;
+                font-size: 30px;
+                transition: 0.6s;
+            }
+
+
+            
+            .light-icon {
+                //animation: 0.4s "icon-disappear";
+                display:none;
+            }
+            
+            &:hover {
+                transform: scale(1.1);
+                i {
+                    color: $code-green;
+                }
+
+                // .tooltiptext {
+                //     visibility: visible;
+                //   }
+            }
+        }
+
+        .tooltiptext {
+            font-family: arial,sans-serif;
+            font-weight: 700;
+            visibility: hidden;
+            width: 100px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            right: 15%;
+            top: 110%;
+            transition: 0.3s;
+        }
+
+        .darkmode-button:hover + .tooltiptext {
+            visibility: visible;
+        }
+
+
+        .social-media-icons {
+            margin-top: 7px;
+            flex: 15%;
+            display: flex;
+            justify-content: space-evenly;
+            background-color: black;
+            //padding: 10px 0px 0px 0px;
+            i {
+                color: white;
+                font-size: 40px;
+                margin-left: .2em;
+                transition: 0.6s;
+                &:hover {
+                    color: $code-green;
+                    transform: scale(1.1);
+                }
+            }
+
+        }
+        
+
+        
+        /* [ON SMALL SCREENS] */
+        @media screen and (max-width: 1140px){
+
+            #hamnav {
+                padding: 0;
+                input:checked ~ #hamitems { display: block; }
+                /* Show Hamburger Icon */
+                label { 
+                    display: inline-block; 
+                    background: $code-green;
+                    font-style: normal;
+                    font-size: 1.5em;
+                    font-weight: 900;
+                    padding: 10px 15px;
+                }
+
+                #hamitems { 
+                    /* Toggle Show/Hide Menu */
+                    display: none;
+                     
+                    /* Break down menu items into vertical */
+                    a {
+                
+                        box-sizing: border-box;
+                        display: block;
+                        width: 100%;
+                        border-top: 1px solid #333;
+                    }
+                }
+            }
+        }
+    }

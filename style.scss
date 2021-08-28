@@ -1,4 +1,12 @@
-@import 'mixins';
+@import "./styles/variables.scss";
+
+// @import "./styles/mixins/lang-card-flip.scss";
+@import './styles/mixins/clipped-border.scss';
+@import './styles/navbar.scss';
+@import './styles/jumbotron.scss';
+@import './styles/lang-card.scss';
+@import './styles/framework-card.scss';
+
 
 @font-face {
     font-family: robotoMono;
@@ -15,17 +23,7 @@
     src: url(../fonts/cascadia-code/Cascadia.ttf) format("truetype");
 }
 
-// Animations
-// @keyframes slidein {
-//     from {
-//         opacity: 0%;
-//         transform: translateX(-600px);
-//     }
-  
-//     to {
-//         transform: translateX(0px);
-//     }
-// }
+
 // for "Web developer" subheading
 @keyframes flipdown {
     from {
@@ -38,25 +36,16 @@
     }
 }
 
-@keyframes icon-appear {
+@keyframes langcardflip {
     from {
-        transform: translateY(-10px);
+        transform: rotateY(0);
     }
-    
+
     to {
-        transform: translateY(0px);
+        transform: rotateY(180deg);
     }
 }
 
-@keyframes icon-disappear {
-    from {
-        transform: translateY(0px);
-    }
-    
-    to {
-        transform: translateY(10px);
-    }
-}
 
 /* ============================================ */
 /* ============== Custom fonts ================ */
@@ -69,23 +58,8 @@
 }
 
 .cascadia {
-    font-family: "cascadia";
+    font-family: "cascadia", monospace;
 }
-
-// COLOR VARIABLES
-$code-green: rgb(30, 255, 0);
-$language-background : #e5dbba;
-$language-card: #FFE8D6;
-$framework-background: rgb(163, 150, 167);
-$framework-card: rgb(132, 98, 146);
-$project-background: #d4d4b3;
-$project-card: #bdbd9f;
-$darkmode-language-background: black;
-$darkmode-project-background: black;
-$darkmode-language-card: lightgrey;
-$darkmode-project-card: lightgrey;
-$darkmode-framework-background: black;
-$darkmode-framework-card: lightgrey;
 
 // STYLES BEGIN
 * { box-sizing:border-box; }
@@ -100,391 +74,211 @@ html {
         width: auto;
         margin: 0;
         padding: 0;
-
+        letter-spacing: 2px;
         .wrapper {
             margin: 0;
             padding: 0;
 
             .section-header {
                 margin-left: 8%;
+                font-size: 2.5em;
+                font-weight: bold;
             }
-            // ************************************************
-            // NAVIGATION STYLES
-            // ************************************************
-            .navbar {
-                padding-right: 1rem;
-                display: flex;
-                position: fixed;
-                width: 100%;
-                z-index: 100;
-                background: #000;
-                align-items: top;
-                #hamnav {
-                    flex: 80%;
-                    width: 100%;
-                    //padding: 0px 20px;
-                    top: 0;
 
-                }
-                .darkmode-button {
-                    margin-top: 7px;
-                    height: 40px;
-                    padding: 5px;
-                    border-radius: 6px;
-                    flex: 5%; 
-                    background-color: rgb(61, 61, 61);
-                    text-align: center;
-                    transition: 0.6s;
-                    i {
-                        color: white;
-                        font-size: 30px;
-                        transition: 0.6s;
-                    }
-                    
-                    .light-icon {
-                        //animation: 0.4s "icon-disappear";
-                        display:none;
-                    }
-                    
-                    &:hover {
-                        transform: scale(1.1);
-                        i {
-                            color: $code-green;
-                        }
-                    }
-                }
-                .social-media-icons {
-                    margin-top: 7px;
-                    flex: 15%;
-                    display: flex;
-                    justify-content: space-evenly;
-                    background-color: black;
-                    //padding: 10px 0px 0px 0px;
-                    i {
-                        color: white;
-                        font-size: 40px;
-                        margin-left: .2em;
-                        transition: 0.6s;
-                        &:hover {
-                            color: $code-green;
-                            transform: scale(1.1);
-                        }
-                    }
-
-                }
-                
-                #hamnav label, #hamburger { display: none; }
-                
-                /* Horizontal Menu Items */
-                #hamitems { display: flex; }
-                
-                #hamitems a {
-                    width: 20%; /* 100% / 5 tabs = 20% */
-                    padding: 0px 0px 15px 25px;
-                    color: white;
-                    font-family: "Roboto", monospace, Impact;
-                    text-decoration: none;
-                    text-align: center;
-                    transition: 0.6s;
-                    &:hover {
-                        color: $code-green;
-                    }
-                }
-
-                
-                /* [ON SMALL SCREENS] */
-                @media screen and (max-width: 1163px){
-
-                    #hamnav {
-                        padding: 0;
-                    }
-                    /* Show Hamburger Icon */
-                    #hamnav label { 
-                        display: inline-block; 
-                        background: $code-green;
-                        font-style: normal;
-                        font-size: 1.5em;
-                        font-weight: 900;
-                        padding: 10px 15px;
-                    }
-                    
-                    /* Break down menu items into vertical */
-                    #hamitems a {
-                        box-sizing: border-box;
-                        display: block;
-                        width: 100%;
-                        border-top: 1px solid #333;
-                    }
-                    
-                    /* Toggle Show/Hide Menu */
-                    #hamitems { display: none; }
-                    #hamnav input:checked ~ #hamitems { display: block; }
-                }
-            }
-                // ************************************************
-                //NAV STYLES END
-                // ************************************************
-
-
-            // ************************************************
-            // HEADER STYLES
-            // ************************************************
-            #landing {
-                padding: 10% 10%;
-                display: block;
-                position: relative;
-                //clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
-                clip-path: polygon(0 0, 100% 0, 100% calc(100% - 4vh), 90% 100%, 10% calc(100% - 4vh), 0 100%);
-                background-color: $language-background;
-                z-index: 95;
-                color: black;
-                // Applies opaque background image to #landing 
-                // without affecting landing text
-                &::before {
-                    content:"";
-
-                    background-image: unset;
-                    //background-image: repeating-linear-gradient(25deg, rgb(66, 66, 66) 3px, darkgrey 3px, rgb(66,66,66) 8px), linear-gradient(45deg, rgba(0,0,0,0), rgba(0, 0, 0, 1));
-                    background-image: linear-gradient(45deg, rgba(0,0,0,0), rgba(0, 0, 0, 1)), repeating-linear-gradient(25deg, rgb(66, 66, 66) 3px, darkgrey 3px, rgb(66,66,66) 8px);
-                    background-position: center;
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    opacity:0.6;
-                    position:absolute;
-                    top:0;
-                    bottom:0;
-                    right:0;
-                    left:0;
-                    width:auto;
-                    height:auto;
-                    z-index:-3;
-                    background-attachment: fixed;
-                }
-                .landing-left {
-                    font-size: x-large;
-                }
-
-                .landing-right {
-                    font-family: "Roboto", Helvetica, sans-serif;
-                    text-align: right;
-                    //margin-right: 70px;
-                }
-
-                .landing-item {
-                    display: inline-block;
-                    width: 40%;
-                }
-                #heading {
-                    font-family: "cascadia";
-                }
-                
-                #subhead {
-                    transform: rotateX(-90deg);
-                    animation-fill-mode: forwards;
-                    // Custom animation
-                    animation: flipdown 1s cubic-bezier(0.28, 1, 0.62, 1) 2s forwards;
-                }
-                
-            }
-            //Wraps "about me" text on small screens
-            @media only screen and (max-width: 1000px) {
-                #landing {
-                    padding: 15% 5% 10% 5%;
-
-                    .landing-item {
-                        display: block;
-                        width: 100%;
-                    }
-                }
-            }
-            // ************************************************
-            //HEADER STYLES END
-            // ************************************************
-
-
-
-            // ************************************************
-            // MAIN SECTION STYLES
-            // ************************************************
             main {
                 margin: 0;
+                
+                // ************************************************
+                // Languages begin
+                // ************************************************
                 #languages-wrapper {
                     background-color: $language-background;
-                    //padding: 25px 0px 100px 25px;
-                    // margin-top: -70px;
-                    clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
+                    // clip-path: polygon(0 0, 100% 0, 100% 100%, 15% calc(100% - 7vh), 0 100%);
                     @include clipped-border;
                     z-index: 85;
+
                     #languages {
                         text-align: center;
-                        .lang-cards {
-                            // Responsive grid for language cards
+                        .lang-card-grid {
                             display: grid;
-                            grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-                            justify-content:center;
-                            align-items: center;
-                            
-        
-                            .lang-card {
-                                color: black;
-                                border-radius: 3%;
-                                display: inline-block;
-                                margin-bottom: 30px;
-                                background-color: $language-card;
-                                height: 300px;
-                                width: 200px;
-                                //margin: 30px 30px 30px 0px;
-                                padding: 10px 20px;
-                                font-family: Arial, Helvetica, sans-serif;
-                                text-align: center;
-                                transition: 0.3s;
-                                &:hover {
-                                    transform: scale(1.04);
-                                    box-shadow: 0px 0px 10px 5px rgba(87, 87, 87, 0.8);
-                                }
-                                }
-                                .lang-text p {
-                                    font-family: "Roboto", sans-serif;
-                                }
-                                
-                                ul {
-                                    text-align: left;
-                                }
-                                
-                                .lang-img {
-                                    height: 150px;
-                                    width: 150px;
-                                }
-                                
-                                .php-img {
-                                    height: 70%;
-                                    margin: 20% 0 20% 0%;
-                                }
-                                
-                                @media only screen and (max-width: 455px) {
-                                    .php-img {
-                                        margin: 15% 0 15% 0;
-                                    }
-
-                                    
-                                }
-
-                                .css-img {
-                                    width: 70%;
-                                }
-                                
-                                .sql-img {
-                                    border-radius: 4%;
-                                }
-                            }
+                            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+                            justify-items: center;
+                            align-content: center;
                         }
-
                     }
                     
                     @media screen and (max-width: 479px){
-                    #languages {
-                        display: flex;
-                        justify-content: center;
+                        #languages {
+                            display: flex;
+                            justify-content: center;
+                        }
                     }
                 }
-                // Languages End
+                // ************************************************
+                // Languages end
+                // ************************************************
+
+                // ************************************************
+                // Frameworks begin
+                // ************************************************
                 #frameworks-wrapper {
                     background-color: $framework-background;
                     padding: 0;
                     margin: 0;
                     width: 100%;
-                    // clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
                     @include clipped-border;
                     z-index: 80;
+                    
                     #frameworks {
                         // REsponsive flexbox for framework cards
                         display: flex;
-                        flex-direction: row;
+                        // flex-direction: row;
                         flex-wrap: wrap;
                         justify-content: space-evenly;
                         gap: 50px 0px;
-                        
-                        .framework-card {
-                            font-family: "Roboto", sans-serif;
-                            font-size: large;
-                            background-color: $framework-card;
-                            color: rgb(0, 0, 0);
-                            padding: 1em 0.25em;
-                            border: 3px solid rgb(88, 61, 88);
-                            border-radius: 5px;
+                    }
+                    @media screen and (max-width: 1199px) {
+                        #frameworks {
+                            justify-content: center;
+                        }
+                    }
+                }
+                // ************************************************
+                // Frameworks end
+                // ************************************************
+                
+                    #projects-wrapper {
+                        background-color: $project-background;
+                        @include clipped-border;
+                        padding-bottom: 200px;
+                        width: 100%;
+                        z-index: 75;
+                        .projects {
                             display: flex;
-                            flex-direction: row;
-                            gap: 10px;
-                            justify-content: space-between;
-                            text-align: center;
-                            //min-width: .8vw;
+                            flex-direction: column;
+                            align-items: center;
                             
-                            
-                            
-                            .framework-text {
-                                flex: 60%;
-                                height: 100%;
-                                border-left: 3px solid rgb(88, 61, 88);//rgb(48, 45, 41);
-                                text-align: left;
-                                padding-left: .5em;
+                            .project {
+                                background-color: $project-card;
+
+                                margin: 1em 0;
+                                border: 1px solid black;
+                                border-radius: 10px;
+                                padding: 1.5em;
+                                width: 80%;
+                                box-shadow: 3px 3px 3px 2px rgba(0, 0, 0, 0.3);
                                 
-                                ul {
-                                    list-style-position: inside;
-                                }
+                            .hover-prompt {
+                                display: flex;
+                                font-size: 1em;
                             }
-                            
-                                .framework-img-wrapper {
-                                    padding: 0.25em 0em 0.25em 0.25em;
-                                    display: flex;
-                                    align-items: center;
-                                    flex: 40%;
+                            .project-header-wrapper {
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                
+                                .project-header {
+                                    text-decoration: underline;
                                 }
-                                @media screen and (max-width: 600px) {
-                                    .framework-card {
-                                        flex-direction: column;
-                                        
-                                        .framework-text {
-                                            flex: 50%
-                                        }
-                                        
-                                        .framework-img-wrapper {
-                                            flex:50%;
+                                a {
+                                    color: rgb(85, 85, 85);
+                                    
+                                    i {
+                                        font-size: 4em;
+                                        transition: 0.3s;
+                                        &:hover {
+                                            color: $code-green;
                                         }
                                     }
                                 }
-                                
-                                .framework-img {
-                                    width: 100%;
-                                    height: auto;
+                            }
+                            .hover-text {
+                                color: black;
+                                font-weight: bold;
+                            }
+                            .project-images {
+                                display: flex;
+                                flex-wrap: wrap;
+                                width: 100%;
+                                justify-content: center;
+                                .project-img-wrapper {
+                                    padding: 0.25em;
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items:center;
+                                    font-weight: bold;
+                                    text-decoration: underline;
+                                    .project-img {
+                                        max-height: 200px;
+                                    
+                                        &:hover {
+                                            transform: scale(3);
+                                            position: relative;
+                                        }
+                                    }
                                 }
                             }
-                            // @media screen and(max-width: 600px) {
-                                //     .languge-card {
-                            //         max-width: 400px;
-                            //     }
-                            // }
                         }
                     }
+
+                    }
+                    
+                    #certifications-wrapper {
+                        background-color: $certifications-background;
+                        @include clipped-border;
+                        .certifications {
+                            display: flex;
+                            justify-content: space-evenly;
+                            flex-wrap: wrap;
+                            .certification {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                                .cert-img {
+                                    max-height: 230px;
+                                    aspect-ratio: 1 / 1;
+                                }
+                            }
+                        }
+                    }
+
                     // ************************************************
-                // FRameworks end
-                // ************************************************
-                
-                #projects-wrapper {
-                    background-color: $project-background;
-                    //padding: 55px 5px 100px 5px;
-                    // margin-top: -69px;
-                    // clip-path: polygon(0 7vh, 15% 0, 100% 7vh, 100% 100%, 15% calc(100% - 7vh), 0 100%);
-                    @include clipped-border;
-                    width: 100%;
+                    // Main end
+                    // ************************************************
+                }
+                #footer {
+                    clip-path: polygon(10% 0%, 90% 4vh, 100% 0, 100% 100%, 0% 100%, 10% calc(100% - 4vh), 0 100%, 0 4vh);
+                    height: 200px;
+                    margin-top: -3vh;
+                    background-color: $footer-background;
+                    font-family: Roboto, "Helvetica Neue", monospace;
+                    padding: 100px 0;
                     height: 400px;
-                    z-index: 75;
-                    // #projects {
+                    line-height: 2em;
+                    .footer-wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        
+                        
+                        .contact-info {
+                            font-size: 1.5em;
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: column;
+                            padding-left: 10%;
+                            .contact-item {
+                                i {
+                                    margin-right: 1em;
+                                }
+                            }
+                        } 
+                    
+                        // h2 {
+                        //     color: black;
+                            
                         // }
                     }
-            // ************************************************
-            // Main end
-            // ************************************************
-            }
+                }
         }
     }
 }
